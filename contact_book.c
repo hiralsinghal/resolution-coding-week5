@@ -85,5 +85,28 @@ while (fgets(buffer, sizeof(buffer), fptr)) {
     char *new_line_pointer = strchr(buffer, '\n');
     if (new_line_pointer) *new_line_pointer = '\0';
 
-    char *field = strtok(buffer, ",")
+    char *field = strtok(buffer, ",");
+    int x = 0;
+
+    i++;
+
+    if (i >= 100) break;
+}
+
+while (field != NULL) {
+    if (x == 0) {
+        strncpy(contact_array[i].name, field, INPUT_LENGTH -1);
+        contact_array[i].name[INPUT_LENGTH -1] = '\0';
+    } else if (x == 1) {
+        strncpy(contact_array[i].address, field, INPUT_LENGTH -1);
+        contact_array[i].address[INPUT_LENGTH -1] = '\0';
+    } else if (x == 2) {
+        strncpy(contact_array[i].email, field, INPUT_LENGTH -1);
+        contact_array[i].email[INPUT_LENGTH -1] = '\0';
+    } else if (x ==  3) {
+        strncpy(contact_array[i].number, field, INPUT_LENGTH -1);
+        contact_array[i].number[INPUT_LENGTH -1] = '\0'
+    }
+    x++;
+    field = strtok(NULL, ",");
 }
