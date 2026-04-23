@@ -63,7 +63,7 @@ void print_contact(const Contact *contact) {
 
 int read_from_csv(Contact contact_array[]) {
     FILE *fptr;
-    char buffer[(INPUT_LENGTH * 4 + 5)]
+    char buffer[(INPUT_LENGTH * 4 + 5)];
     int i = 0;
 
     fptr = fopen(FILENAME, "r");
