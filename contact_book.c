@@ -11,6 +11,23 @@ int add_new_entry();
 int list_contacts();
 void print_contact();
 
+int list_contacts() {
+    int contact_count = read_from_csv(contact_array);
+
+    for (int i = 0; i < contact_count; i++) {
+        print_contact(&contact_array[i]);
+    }
+
+    return 0;
+}
+
+void print_contact(const Contact *contact) {
+    printf("Name: %s\n", contact->name);
+    printf("Address: %s\n", contact->address);
+    printf("Email: %s\n", contact->email);
+    printf("\n");
+}
+
 int main () {
     add_new_entry();
 
@@ -43,23 +60,6 @@ typedef struct Contact() {
 } Contact;
 
 Contact contact_array[100];
-
-int list_contacts() {
-    int contact_count = read_from_csv(contact_array);
-
-    for (int i = 0; i < contact_count; i++) {
-        print_contact(&contact_array[i]);
-    }
-
-    return 0;
-}
-
-void print_contact(const Contact *contact) {
-    printf("Name: %s\n", contact->name);
-    printf("Address: %s\n", contact->address);
-    printf("Email: %s\n", contact->email);
-    printf("\n");
-}
 
 int read_from_csv(Contact contact_array[]) {
     FILE *fptr;
