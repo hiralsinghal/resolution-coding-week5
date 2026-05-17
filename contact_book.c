@@ -35,6 +35,7 @@ void print_contact(const Contact *contact) {
     printf("Name: %s\n", contact->name);
     printf("Address: %s\n", contact->address);
     printf("Email: %s\n", contact->email);
+    printf("Number: %s\n", contact->number);
     printf("\n");
 }
 
@@ -105,4 +106,10 @@ int read_from_csv(Contact contact_array[]) {
     fclose(fptr);
 
     return i;
+}
+
+int main(int argc, char *argv[]) {
+    if (argc > 1) {
+        FILENAME = argv[1];
+    }
 }
